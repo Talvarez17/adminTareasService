@@ -18,12 +18,12 @@ switch ($_GET["opcion"]) {
         break;
 
     case "insert":
-        $datos = $tareas->insertarTarea($body["titulo"], $body["descripcion"], $body["fechaVencimiento"], $body["estado"]);
+        $datos = $tareas->insertarTarea($body["titulo"], $body["descripcion"], $body["fecha"], $body["estado"]);
         echo json_encode($datos);
         break;
 
     case "update":
-        $datos = $tareas->editarTarea($body["id"], $body["titulo"], $body["descripcion"], $body["fechaVencimiento"], $body["estado"]);
+        $datos = $tareas->editarTarea($body["id"], $body["titulo"], $body["descripcion"], $body["fecha"], $body["estado"]);
         echo json_encode($datos);
         break;
 

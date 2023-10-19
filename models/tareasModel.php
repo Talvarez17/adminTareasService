@@ -18,14 +18,14 @@ class Tareas extends Conectar
         return $Array;
     }
 
-    function insertarTarea($titulo, $descripcion, $fechaVencimiento, $estado) {
+    function insertarTarea($titulo, $descripcion, $fecha, $estado) {
         $db = parent::Conexion();
         parent::set_names();
         $sql = "INSERT INTO `tareas`( `titulo`, `descripcion`, `fechaVencimiento`, `estado`) VALUES (?,?,?,?)";
         $sql = $db->prepare($sql);
         $sql->bindValue(1, $titulo);
         $sql->bindValue(2, $descripcion);
-        $sql->bindValue(3, $fechaVencimiento);
+        $sql->bindValue(3, $fecha);
         $sql->bindValue(4, $estado);
         
         $result['status'] = $sql->execute();
@@ -62,12 +62,12 @@ class Tareas extends Conectar
  
   
     
-    public function editarTarea($id,$titulo, $descripcion, $fechaVencimiento, $estado)
+    public function editarTarea($id,$titulo, $descripcion, $fecha, $estado)
     {
         $db = parent::Conexion();
         parent::set_names();
         $sql = "UPDATE `tareas` SET `titulo`='$titulo',`descripcion`='$descripcion',
-        `fechaVencimiento`='$fechaVencimiento',`estado`='$estado' WHERE  `id` = $id;";
+        `fechaVencimiento`='$fecha',`estado`='$estado' WHERE  `id` = $id;";
         $sql = $db->prepare($sql);
         $resultado['estatus'] = $sql->execute();
         return $resultado;
